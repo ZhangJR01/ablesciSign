@@ -439,6 +439,10 @@ def get_accounts():
 
 def main():
     """主函数，处理多账号签到，统一通知器"""
+    import random
+    # 再随机等待0-600秒
+    random_wait = random.uniform(0, 600)
+    time.sleep(random_wait)
     # 创建全局通知器，所有账号共享
     global_notifier = Notifier("科研通多账号签到")
     global_notifier.log("科研通多账号签到任务开始", "info")
