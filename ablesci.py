@@ -136,6 +136,7 @@ class Notifier:
             from sendNotify import send
             self.send = send
             self.notify_enabled = True
+            self.log(f"导入通知模块成功1")
         except ImportError:
             try:
                 parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -143,6 +144,7 @@ class Notifier:
                 from sendNotify import send
                 self.send = send
                 self.notify_enabled = True
+                self.log(f"导入通知模块成功2")
             except Exception as e:
                 self.log(f"导入通知模块失败: {str(e)}", "warning")
                 self.notify_enabled = False
