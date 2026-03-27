@@ -441,8 +441,8 @@ def main():
     """主函数，处理多账号签到，统一通知器"""
     import random
     # 再随机等待0-600秒
-    random_wait = random.uniform(0, 600)
-    time.sleep(random_wait)
+    
+    
     # 创建全局通知器，所有账号共享
     global_notifier = Notifier("科研通多账号签到")
     global_notifier.log("科研通多账号签到任务开始", "info")
@@ -460,6 +460,8 @@ def main():
     global_notifier.log(f"找到 {account_count} 个账号", "info")
     
     for i, (email, password) in enumerate(accounts, 1):
+        random_wait = random.uniform(0, 600)
+        time.sleep(random_wait)
         global_notifier.log(f"\n===== 开始处理第 {i}/{account_count} 个账号 =====", "info")
         
         automator = AbleSciAuto(email, password, notifier=global_notifier)
